@@ -7,21 +7,24 @@ $json = array();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['country']) && isset($_POST['bod']) && isset($_POST['gender'])){
+	if(isset($_POST['username']) && isset($_POST['email']) 
+	   && isset($_POST['bod']) ) {
 
 		$username = $user_fun->htmlvalidation($_POST['username']);
 		$email = $user_fun->htmlvalidation($_POST['email']);
-		$country = $user_fun->htmlvalidation($_POST['country']);
+		$prenom = $user_fun->htmlvalidation($_POST['Prenom']);
 		$bod = $user_fun->htmlvalidation($_POST['bod']);
-		$gender = $user_fun->htmlvalidation($_POST['gender']);
+		$login = $user_fun->htmlvalidation($_POST['Login']);
 
-		if((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $email)) && (!preg_match('/^[ ]*$/', $country)) && (!preg_match('/^[ ]*$/', $gender)) && ($bod != NULL)){
+		if((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $email)) && 
+		    ($bod != NULL)){
 
-			$field_val['u_name'] = $username;
-			$field_val['u_email'] = $email;
-			$field_val['u_gender'] = $gender;
-			$field_val['u_country'] = $country;
-			$field_val['u_bod'] = $bod;	
+
+			$field_val['Nom'] = $username;
+			$field_val['Prenom'] = $prenom;
+			$field_val['Login'] = $username;
+			$field_val['Email'] = $email;
+			$field_val['DOB'] = $bod;
 
 			$insert = $user_fun->insert("user", $field_val);
 
