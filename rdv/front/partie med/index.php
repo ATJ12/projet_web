@@ -89,7 +89,6 @@
 		<div class="container">
 			<div class="row m-3 text-center">
 				<div class="col-lg-12">
-					<h1 class="box-title">Ajax Insert || Update || Delete</h1>
 				</div>
 			</div>
 			<div  class="row justify-content-center">
@@ -124,38 +123,27 @@
 					<input type="text" name="username" class="form-control" placeholder="Username">
 					<span class="error-msg" id="msg_1"></span>
 			  	</div>
+				  <div class="form-group">
+					<label><b>Prenom</b></label>
+					<input type="text" name="Prenom" class="form-control" placeholder="Username">
+					<span class="error-msg" id="msg_1"></span>
+			  	</div>
+				  <div class="form-group">
+					<label><b>Login</b></label>
+					<input type="text" name="Login" class="form-control" placeholder="Username">
+					<span class="error-msg" id="msg_1"></span>
+			  	</div>
 			  	<div class="form-group">
 					<label><b>Email</b></label>
 					<input type="text" name="email" class="form-control" placeholder="YourEmail@email.com">
 					<span class="error-msg" id="msg_2"></span>
 			  	</div>
 				<div class="form-group">
-					<label><b>Country</b></label>
-					<select class="custom-select" name="country" id="country">
-						<option value="" selected>Choose...</option>
-						<option value="USA">USA</option>
-						<option value="Germany">Germany</option>
-						<option value="UK">UK</option>
-					</select>
-					<span class="error-msg" id="msg_3"></span>
-			  	</div>
-				<div class="form-group">
 					<label><b>Birth Date</b></label>
 					<input type="date" name="bod" class="form-control">
 					<span class="error-msg" id="msg_4"></span>
 			  	</div>
-				<div class="form-group">
-					<label class="mr-3"><b>Gender :- </b></label>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="gender" value="Male" checked>
-					  <label class="form-check-label" >Male</label>
-					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="gender" value="Female">
-					  <label class="form-check-label" >Female</label>
-					</div>
-					<span class="error-msg"  id="msg_5"></span>
-				</div>	
+	
 				<div class="form-group">
 					<span class="success-msg" id="sc_msg"></span>
 				</div>
@@ -189,38 +177,28 @@
 				<input type="text" class="form-control" name="username" id="upd_1" placeholder="Username">
 				<span class="error-msg" id="umsg_1"></span>
 		  	</div>
+			  <div class="form-group">
+					<label><b>Prenom</b></label>
+					<input type="text" name="Prenom" class="form-control" placeholder="Username">
+					<span class="error-msg" id="msg_2"></span>
+			  	</div>
+				  <div class="form-group">
+					<label><b>Login</b></label>
+					<input type="text" name="Login" class="form-control" placeholder="Username">
+					<span class="error-msg" id="msg_3"></span>
+			  	</div>
 		  	<div class="form-group">
 				<label><b>Email</b></label>
 				<input type="text" class="form-control" name="email" id="upd_2" placeholder="YourEmail@email.com">
 				<span class="error-msg" id="umsg_2"></span>
 		  	</div>
-			<div class="form-group">
-				<label><b>Country</b></label>
-				<select class="custom-select" id="upd_3" name="country">
-					<option value="" selected>Choose...</option>
-					<option value="USA">USA</option>
-					<option value="Germany">Germany</option>
-					<option value="UK">UK</option>
-				</select>
-				<span class="error-msg" id="umsg_3"></span>
-		  	</div>
+			
 			<div class="form-group">
 				<label><b>Birth Date</b></label>
-				<input type="date" class="form-control" id="upd_4" name="bod">
+				<input type="date" data-date-format="yyyy-MM-dd" class="form-control" id="upd_4" name="bod">
 				<span class="error-msg" id="umsg_4"></span>
 		  	</div>
-			<div class="form-group">
-				<label><b>Gender</b></label>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" id="upd_5" name="gender" value="Male">
-				  <label class="form-check-label" >Male</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" id="upd_6" name="gender" value="Female">
-				  <label class="form-check-label" >Female</label>
-				</div>
-				<span class="success-msg" id="umsg_5"></span>
-			</div>
+
 			<div class="form-group">
 				<input type="hidden" name="dataval" id="upd_7">
 				<span class="success-msg" id="umsg_6"></span>
@@ -343,8 +321,9 @@ $(document).ready(function (){
 		$.getJSON("updateprocess.php", {checkid : check_id}, function(json){
 			if(json.status == 0){
 				$('#upd_1').val(json.username);
+				$('#upd_3').val(json.prenom);
+				$('#upd_3').val(json.login);
 				$('#upd_2').val(json.email);
-				$('#upd_3').val(json.country);
 				$('#upd_4').val(json.bod);
 				$('#upd_7').val(check_id);
 				if(json.gender == 'Male'){

@@ -7,26 +7,26 @@ $json = array();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['country']) && isset($_POST['bod']) && isset($_POST['gender']) && isset($_POST['dataval'])){
+	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['bod']) && isset($_POST['dataval'])){
 
 		$username = $user_fun->htmlvalidation($_POST['username']);
 		$email = $user_fun->htmlvalidation($_POST['email']);
-		$country = $user_fun->htmlvalidation($_POST['country']);
+		$prenom = $user_fun->htmlvalidation($_POST['Prenom']);
 		$bod = $user_fun->htmlvalidation($_POST['bod']);
-		$gender = $user_fun->htmlvalidation($_POST['gender']);
+		$login = $user_fun->htmlvalidation($_POST['Login']);
 		$update_id = $user_fun->htmlvalidation($_POST['dataval']);
 
-		if((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $email)) && (!preg_match('/^[ ]*$/', $country)) && (!preg_match('/^[ ]*$/', $gender)) && ($bod != NULL)){
+		if((!preg_match('/^[ ]*$/', $username)) &&
+		 (!preg_match('/^[ ]*$/', $email)) && ($bod != NULL)){
 
-			$condition['u_id'] = $update_id;
-
-			$field_val['Nom-patient'] = $username;
-			$field_val['u_email'] = $email;
-			$field_val['u_gender'] = $gender;
-			// $field_val['u_country'] = $country;
-			$field_val['u_bod'] = $bod;	
-
+			$condition['id'] = $update_id;
+			$field_val['Nom'] = $username;
+			$field_val['Prenom'] = $prenom;
+			$field_val['Login'] = $username;
+			$field_val['Email'] = $email;
+			$field_val['DOB'] = $bod;	
 			$update = $user_fun->update("user", $field_val, $condition);
+		
 
 			if($update){
 				$json['status'] = 101;
@@ -52,18 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$json['msg'] = "Please Enter Email";
 
 			}
-			if(preg_match('/^[ ]*$/', $country)){
 
-				$json['status'] = 105;
-				$json['msg'] = "Please Select Country";
-
-			}
-			if(preg_match('/^[ ]*$/', $gender)){
-
-				$json['status'] = 106;
-				$json['msg'] = "Please Choice Gender";
-
-			}
 			if($bod == NULL){
 
 				$json['status'] = 107;
