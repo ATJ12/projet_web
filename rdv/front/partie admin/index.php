@@ -22,66 +22,6 @@
 			color: green;
 			font-weight: 600;
 		}
-		.navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 	</style>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">   
    
@@ -146,15 +86,6 @@
 		   </div>
 	   </div>
    </div>
-   <div>
-   <ul>
-   <div class="navbar">
-  <a href="index.php">LISTE des patients</a>
-  <a href="">MESSAGES</a>
-  <a href="Espaces des ordonances.php">Espace des ordaunances</a>
-  </div> 
-</div>
-</ul>
 		<div class="container">
 			<div class="row m-3 text-center">
 				<div class="col-lg-12">
@@ -162,13 +93,14 @@
 			</div>
 			<div  class="row justify-content-center">
 				<div class="col-lg-6">
-				<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >Add Patient</button>	
+				<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >Add rendez_vous</button>	
 				</div>
 				<div class="col-lg-6">
 					<input type="text" id="search" class="form-control" placeholder="Search For patient">
 				</div>
 			</div>
 			<div class="row mt-5" id="tbl_rec">
+			<tr>tat</tr>
 			</div>
 		</div>
 	</div>
@@ -187,31 +119,25 @@
       <form method="POST" id="ins_rec">
 	      <div class="modal-body">
 			  	<div class="form-group">
-					<label><b>Nom</b></label>
-					<input type="text" name="username" class="form-control" placeholder="Username">
+					<label><b>ID_MED</b></label>
+					<input type="text" name="id_med" class="form-control" placeholder="medcin">
 					<span class="error-msg" id="msg_1"></span>
 			  	</div>
 				  <div class="form-group">
-					<label><b>Prenom</b></label>
-					<input type="text" name="Prenom" class="form-control" placeholder="Username">
+					<label><b>ID_PATIENT</b></label>
+					<input type="text" name="id_patient" class="form-control" placeholder="patient">
 					<span class="error-msg" id="msg_1"></span>
-			  	</div>
-				  <div class="form-group">
-					<label><b>Login</b></label>
-					<input type="text" name="Login" class="form-control" placeholder="Username">
-					<span class="error-msg" id="msg_1"></span>
-			  	</div>
-			  	<div class="form-group">
-					<label><b>Email</b></label>
-					<input type="text" name="email" class="form-control" placeholder="YourEmail@email.com">
-					<span class="error-msg" id="msg_2"></span>
 			  	</div>
 				<div class="form-group">
-					<label><b>Birth Date</b></label>
-					<input type="date" name="bod" class="form-control">
+					<label><b>Jour</b></label>
+					<input type="date" name="jour" class="form-control">
 					<span class="error-msg" id="msg_4"></span>
 			  	</div>
-	
+				  <div class="form-group">
+					<label><b>heure</b></label>
+					<input type="time" name="heure" class="form-control" placeholder="Username">
+					<span class="error-msg" id="msg_1"></span>
+			  	</div>
 				<div class="form-group">
 					<span class="success-msg" id="sc_msg"></span>
 				</div>
@@ -241,32 +167,26 @@
       <form method="POST" id="updata">
       <div class="modal-body">
 		  	<div class="form-group">
-				<label><b>User Name</b></label>
-				<input type="text" class="form-control" name="username" id="upd_1" placeholder="Username">
+				<label><b>ID_MED</b></label>
+				<input type="text" class="form-control" name="id_med" id="upd_1" placeholder="Username">
 				<span class="error-msg" id="umsg_1"></span>
 		  	</div>
 			  <div class="form-group">
-					<label><b>Prenom</b></label>
-					<input type="text" name="Prenom" class="form-control" placeholder="Username">
+					<label><b>ID_PATIENT</b></label>
+					<input type="text" name="id_patient" class="form-control" placeholder="Username">
 					<span class="error-msg" id="msg_2"></span>
 			  	</div>
 				  <div class="form-group">
-					<label><b>Login</b></label>
-					<input type="text" name="Login" class="form-control" placeholder="Username">
-					<span class="error-msg" id="msg_3"></span>
-			  	</div>
-		  	<div class="form-group">
-				<label><b>Email</b></label>
-				<input type="text" class="form-control" name="email" id="upd_2" placeholder="YourEmail@email.com">
+				<label><b>Jour</b></label>
+				<input type="date" class="form-control" name="jour" id="upd_2" placeholder="YourEmail@email.com">
 				<span class="error-msg" id="umsg_2"></span>
 		  	</div>
 			
-			<div class="form-group">
-				<label><b>Birth Date</b></label>
-				<input type="date" data-date-format="yyyy-MM-dd" class="form-control" id="upd_4" name="bod">
-				<span class="error-msg" id="umsg_4"></span>
-		  	</div>
-
+				  <div class="form-group">
+					<label><b>heure</b></label>
+					<input type="time" name="heure" class="form-control" placeholder="Username">
+					<span class="error-msg" id="msg_3"></span>
+			  	</div>
 			<div class="form-group">
 				<input type="hidden" name="dataval" id="upd_7">
 				<span class="success-msg" id="umsg_6"></span>
@@ -306,6 +226,50 @@
 </div>	
 	
 <!-- End Delete Design Modal -->
+
+<!-- Validate RDV Design Modal -->
+	
+<div class="modal fade" id="validateModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="validateModalCenterTitle">Are You Sure to validate this appointment ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <p>If You Click On Validate Button Record appointment Will Be validated.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="validaterec_cancle" data-dismiss="modal">Cancle</button>
+        <button type="button" class="btn btn-primary" id="validaterec">Validate Now</button>
+      </div>
+    </div>
+  </div>
+</div>	
+<!--annuler le confirmation de rdv-->
+<div class="modal fade" id="annulerModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="validateModalCenterTitle">Are You Sure to annulate this appointment ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <p>If You Click On annulate Button Record appointment Will Be unvalidated.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="annulerrec_cancle" data-dismiss="modal">Cancle</button>
+        <button type="button" class="btn btn-primary" id="annulerrec">Annulate Now</button>
+      </div>
+    </div>
+  </div>
+</div>	
+	
+<!-- End Validate RDV Design Modal -->
 	
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -388,11 +352,10 @@ $(document).ready(function (){
 		var check_id = $(this).data('dataid');
 		$.getJSON("updateprocess.php", {checkid : check_id}, function(json){
 			if(json.status == 0){
-				$('#upd_1').val(json.username);
-				$('#upd_3').val(json.prenom);
-				$('#upd_3').val(json.login);
-				$('#upd_2').val(json.email);
-				$('#upd_4').val(json.bod);
+				$('#upd_1').val(json.ID_MED);
+				$('#upd_3').val(json.ID_PATIENT);
+				$('#upd_3').val(json.jour);
+				$('#upd_2').val(json.Heure);
 				$('#upd_7').val(check_id);
 				if(json.gender == 'Male'){
 					$('#upd_5').prop("checked", true);
@@ -489,6 +452,60 @@ $(document).ready(function (){
 		});
 	});
 
+	//Validate rdv record
+
+	var deleteid;
+
+	$(document).on("click", "button.validatedata", function(){
+		deleteid = $(this).data("dataid");
+	});
+
+	$('#validaterec').click(function (){
+		$.ajax({
+			type:'POST',
+			url:'validateprocess.php',
+			data:{delete_id : deleteid},
+			success:function(data){
+				var json = JSON.parse(data);
+		//		if(json.status == 0){
+					$('#tbl_rec').load('record.php');
+					$('#validaterec_cancle').trigger("click");
+					console.log(json.msg);
+		//		}
+		//		else{
+		//			console.log(json.msg);
+		//		}
+			}
+		});
+	});
+
+
+//Annulate rdv record
+
+var deleteid;
+
+$(document).on("click", "button.annulerdata", function(){
+	deleteid = $(this).data("dataid");
+});
+
+$('#annulerrec').click(function (){
+	$.ajax({
+		type:'POST',
+		url:'annulerprocess.php',
+		data:{delete_id : deleteid},
+		success:function(data){
+			var json = JSON.parse(data);
+	//		if(json.status == 0){
+				$('#tbl_rec').load('record.php');
+				$('#annulerrec_cancle').trigger("click");
+				console.log(json.msg);
+	//		}
+	//		else{
+	//			console.log(json.msg);
+	//		}
+		}
+	});
+});
 
 });
 
