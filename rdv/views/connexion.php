@@ -12,35 +12,32 @@
     // create an instance of the controller     Mohamed Ali mohamed.ali@esprit.tn med med
     $userC = new rdv1C();
    if (
-        isset($_POST["id_med"]) &&       
-        isset($_POST["id_patient"])
+        isset($_POST["nom_med"]) &&       
+        isset($_POST["nom_patient"])
        // isset($_POST["jour"]) && 
         //isset($_POST["huere"]) 
    
     ) {
         if (
-            !empty($_POST["id_med"]) && 
-            !empty($_POST["id_patient"]) 
+            !empty($_POST["nom_med"]) && 
+            !empty($_POST["nom_patient"]) 
            // !empty($_POST["jour"]) && 
             //!empty($_POST["huere"]) 
         ) {
             $user = new rvd1(           
-                $_POST['id_med'],
-                $_POST['id_patient'], 
+                $_POST['nom_medcin'],
+                $_POST['Nom_patient'],
                 $_POST['jour'],
-                $_POST['heure'],
-                $_POST['Nom_med'],
-                $_POST['Nom_patient']
+                $_POST['heure']
+               
             );
             $userC->ajouterrdv($user);
-            
-            header('Location:afficherdv.php');
+            var_dump($user);
+            header('Location:afficherrdv.php');
         }
         else
             $error = "Missing information";
-    }
-
-    
+    }    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,6 +85,12 @@ th, td {
 }
 
 tr:hover {background-color:#f5f5f5;}
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
 </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
