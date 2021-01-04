@@ -8,8 +8,8 @@ if(isset($_POST['keyword']) && !empty(trim($_POST['keyword']))){
 
 	$keyword = $user_fun->htmlvalidation($_POST['keyword']);
 
-	$match_field['u_name'] = $keyword;
-	$match_field['u_email'] = $keyword;
+	$match_field['Nom'] = $keyword;
+	$match_field['Prenom'] = $keyword;
 	$select = $user_fun->search("user", $match_field, "OR");
 
 }

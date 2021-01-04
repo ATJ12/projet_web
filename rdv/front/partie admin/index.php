@@ -497,7 +497,7 @@ $('#annulerrec').click(function (){
 			var json = JSON.parse(data);
 	//		if(json.status == 0){
 				$('#tbl_rec').load('record.php');
-				$('#annulerrec_cancle').trigger("click");
+				$('#annulerrec	_cancle').trigger("click");
 				console.log(json.msg);
 	//		}
 	//		else{

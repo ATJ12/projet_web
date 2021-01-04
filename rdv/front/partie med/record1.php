@@ -1,6 +1,6 @@
 <?php
 
-include_once('config.php');
+include_once('confi.php');
 $user_fun = new Userfunction();
 $counter = 1;
 
@@ -8,14 +8,14 @@ if(isset($_POST['keyword']) && !empty(trim($_POST['keyword']))){
 
 	$keyword = $user_fun->htmlvalidation($_POST['keyword']);
 
-	$match_field['jour'] = $keyword;
-	$match_field['id'] = $keyword;
-	$select = $user_fun->search("rvd1", $match_field, "OR");
+	$match_field['nom_patient'] = $keyword;
+	$match_field['email'] = $keyword;
+	$select = $user_fun->search("consultation", $match_field, "OR");
 
 }
 else{
 
-	$select = $user_fun->select("rvd1");
+	$select = $user_fun->select("consultation");
 
 }
 
@@ -26,32 +26,27 @@ else{
 				  <thead class="thead-dark">
 					<tr>
 					  	<th scope="col">#</th>
-					  	<th scope="col">Medcin</th>
-					  	<th scope="col">Patient</th>
-						<th scope="col">Jour</th>
-						<th scope="col">Heure</th>
+					  	<th scope="col">Name</th>
+						  <th scope="col">prenom</th>
+						<th scope="col">Gender</th>
+					  	<th scope="col">Discription</th>
+						  <th scope="col">Email</th>
+						<th scope="col">Date</th>
 						<th scope="col">Action</th>
 					</tr>
 				  </thead>
 				  <tbody>
-				  	<?php if($select){ foreach($select as $se_data){
-						 
-						$match_field['id'] = $se_data['id_med'];
-						$select_medecin = $user_fun->search("user", $match_field);
-						$se_data['id_med'] = $select_medecin[0]['Nom'];
-						 
-						$match_field['id'] = $se_data['id_patient'];
-						$select_medecin = $user_fun->search("user", $match_field);
-						$se_data['id_patient'] = $select_medecin[0]['Nom'];
-						 ?>
+				  	<?php if($select){ foreach($select as $se_data){ ?>
 					<tr>
 					  <th scope="row"><?php echo $counter; $counter++; ?></th>
-					  	<td><?php echo $se_data['id_med'] ; ?></td>
-					  	<td><?php echo $se_data['id_patient']; ?></td>
-					  	<td><?php echo $se_data['jour']; ?></td>
-						<td><?php echo $se_data['heure']; ?></td>
+					  	<td><?php echo $se_data['nom_patient']; ?></td>
+					  	<td><?php echo $se_data['pre_patient']; ?></td>
+					  	<td><?php echo $se_data['gender']; ?></td>
+						  <td><?php echo $se_data['discription']; ?></td>
+						  <td><?php echo $se_data['email']; ?></td>
+						<td><?php echo $se_data['date']; ?></td>
 						<td>
-							<button type="button" class="btn btn-danger editdata" data-dataid="<?php echo $se_data['id']; ?>" data-toggle="modal" data-target="#updateModalCenter">Update</button>
+						<button type="button" class="btn btn-danger editdata" data-dataid="<?php echo $se_data['id']; ?>" data-toggle="modal" data-target="#updateModalCenter">Update</button>
 							<button type="button" class="btn btn-danger deletedata" data-dataid="<?php echo $se_data['id']; ?>" data-toggle="modal" data-target="#deleteModalCenter">Delete</button>
 							<?php if(!$se_data['status']) { 
 							   echo '<button type="button" class="btn btn-info validatedata" 

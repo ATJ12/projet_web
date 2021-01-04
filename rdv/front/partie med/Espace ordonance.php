@@ -155,6 +155,7 @@
   </div> 
 </div>
 </ul>
+	<div class="container-fluid">
 		<div class="container">
 			<div class="row m-3 text-center">
 				<div class="col-lg-12">
@@ -162,13 +163,14 @@
 			</div>
 			<div  class="row justify-content-center">
 				<div class="col-lg-6">
-				<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >Add Patient</button>	
+				<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >Add Record</button>	
 				</div>
 				<div class="col-lg-6">
-					<input type="text" id="search" class="form-control" placeholder="Search For patient">
+					<input type="text" id="search" class="form-control" placeholder="Search Now">
 				</div>
 			</div>
 			<div class="row mt-5" id="tbl_rec">
+		
 			</div>
 		</div>
 	</div>
@@ -187,18 +189,13 @@
       <form method="POST" id="ins_rec">
 	      <div class="modal-body">
 			  	<div class="form-group">
-					<label><b>Nom</b></label>
-					<input type="text" name="username" class="form-control" placeholder="Username">
+					<label><b>User Name</b></label>
+					<input type="text" name="nom_patient" class="form-control" placeholder="Username">
 					<span class="error-msg" id="msg_1"></span>
 			  	</div>
 				  <div class="form-group">
 					<label><b>Prenom</b></label>
-					<input type="text" name="Prenom" class="form-control" placeholder="Username">
-					<span class="error-msg" id="msg_1"></span>
-			  	</div>
-				  <div class="form-group">
-					<label><b>Login</b></label>
-					<input type="text" name="Login" class="form-control" placeholder="Username">
+					<input type="text" name="pre_patient" class="form-control" placeholder="Username">
 					<span class="error-msg" id="msg_1"></span>
 			  	</div>
 			  	<div class="form-group">
@@ -206,12 +203,28 @@
 					<input type="text" name="email" class="form-control" placeholder="YourEmail@email.com">
 					<span class="error-msg" id="msg_2"></span>
 			  	</div>
+				  <div class="form-group">
+					<label><b>Discription</b></label>
+					<input type="text" name="discription" class="form-control" >
+					<span class="error-msg" id="msg_2"></span>
+			  	</div>
 				<div class="form-group">
 					<label><b>Birth Date</b></label>
-					<input type="date" name="bod" class="form-control">
+					<input type="date" name="date" class="form-control">
 					<span class="error-msg" id="msg_4"></span>
 			  	</div>
-	
+				<div class="form-group">
+					<label class="mr-3"><b>Gender :- </b></label>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="gender" value="Male" checked>
+					  <label class="form-check-label" >Male</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="gender" value="Female">
+					  <label class="form-check-label" >Female</label>
+					</div>
+					<span class="error-msg"  id="msg_5"></span>
+				</div>	
 				<div class="form-group">
 					<span class="success-msg" id="sc_msg"></span>
 				</div>
@@ -242,31 +255,41 @@
       <div class="modal-body">
 		  	<div class="form-group">
 				<label><b>User Name</b></label>
-				<input type="text" class="form-control" name="username" id="upd_1" placeholder="Username">
+				<input type="text" class="form-control" name="nom_patient" id="upd_1" placeholder="Username">
 				<span class="error-msg" id="umsg_1"></span>
 		  	</div>
 			  <div class="form-group">
-					<label><b>Prenom</b></label>
-					<input type="text" name="Prenom" class="form-control" placeholder="Username">
-					<span class="error-msg" id="msg_2"></span>
-			  	</div>
-				  <div class="form-group">
-					<label><b>Login</b></label>
-					<input type="text" name="Login" class="form-control" placeholder="Username">
-					<span class="error-msg" id="msg_3"></span>
-			  	</div>
+				<label><b>Prenom</b></label>
+				<input type="text" class="form-control" name="pre_patient" id="upd_1" placeholder="Username">
+				<span class="error-msg" id="umsg_1"></span>
+		  	</div>
+			  <div class="form-group">
+				<label><b>Discription</b></label>
+				<input type="text" class="form-control" name="discription" id="upd_1" placeholder="Username">
+				<span class="error-msg" id="umsg_1"></span>
+		  	</div>
 		  	<div class="form-group">
 				<label><b>Email</b></label>
 				<input type="text" class="form-control" name="email" id="upd_2" placeholder="YourEmail@email.com">
 				<span class="error-msg" id="umsg_2"></span>
 		  	</div>
-			
 			<div class="form-group">
-				<label><b>Birth Date</b></label>
-				<input type="date" data-date-format="yyyy-MM-dd" class="form-control" id="upd_4" name="bod">
+				<label><b>Date</b></label>
+				<input type="date" class="form-control" id="upd_4" name="date">
 				<span class="error-msg" id="umsg_4"></span>
 		  	</div>
-
+			<div class="form-group">
+				<label><b>Gender</b></label>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" id="upd_5" name="gender" value="Male">
+				  <label class="form-check-label" >Male</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" id="upd_6" name="gender" value="Female">
+				  <label class="form-check-label" >Female</label>
+				</div>
+				<span class="success-msg" id="umsg_5"></span>
+			</div>
 			<div class="form-group">
 				<input type="hidden" name="dataval" id="upd_7">
 				<span class="success-msg" id="umsg_6"></span>
@@ -315,11 +338,11 @@
 <script type="text/javascript">
 	
 $(document).ready(function (){
-	$('#tbl_rec').load('record.php');
+	$('#tbl_rec').load('record1.php');
 
 	$('#search').keyup(function (){
 		var search_data = $(this).val();
-		$('#tbl_rec').load('record.php', {keyword:search_data});
+		$('#tbl_rec').load('record1.php', {keyword:search_data});
 	});
 
 	//insert Record
@@ -329,7 +352,7 @@ $(document).ready(function (){
 		$.ajax({
 
 			type:'POST',
-			url:'insprocess.php',
+			url:'insprocess1.php',
 			data:$(this).serialize(),
 			success:function(vardata){
 
@@ -337,7 +360,7 @@ $(document).ready(function (){
 
 				if(json.status == 101){
 					console.log(json.msg);
-					$('#tbl_rec').load('record.php');
+					$('#tbl_rec').load('record1.php');
 					$('#ins_rec').trigger('reset');
 					$('#close_click').trigger('click');
 				}
@@ -386,13 +409,14 @@ $(document).ready(function (){
 		$('#umsg_6').text("");
 		$('#umsg_7').text("");
 		var check_id = $(this).data('dataid');
-		$.getJSON("updateprocess.php", {checkid : check_id}, function(json){
+		$.getJSON("updateprocess1.php", {checkid : check_id}, function(json){
 			if(json.status == 0){
-				$('#upd_1').val(json.username);
-				$('#upd_3').val(json.prenom);
-				$('#upd_3').val(json.login);
+				$('#upd_1').val(json.nom_patient);
+				$('#upd_1').val(json.pre_patient);
 				$('#upd_2').val(json.email);
-				$('#upd_4').val(json.bod);
+				$('#upd_2').val(json.gender);
+				$('#upd_3').val(json.discription);
+				$('#upd_4').val(json.date);
 				$('#upd_7').val(check_id);
 				if(json.gender == 'Male'){
 					$('#upd_5').prop("checked", true);
@@ -415,7 +439,7 @@ $(document).ready(function (){
 		$.ajax({
 
 			type:'POST',
-			url:'updateprocess2.php',
+			url:'updateprocess21.php',
 			data:$(this).serialize(),
 			success:function(vardata){
 
@@ -423,7 +447,7 @@ $(document).ready(function (){
 
 				if(json.status == 101){
 					console.log(json.msg);
-					$('#tbl_rec').load('record.php');
+					$('#tbl_rec').load('record1.php');
 					$('#ins_rec').trigger('reset');
 					$('#up_cancle').trigger('click');
 				}
@@ -473,12 +497,12 @@ $(document).ready(function (){
 	$('#deleterec').click(function (){
 		$.ajax({
 			type:'POST',
-			url:'deleteprocess.php',
+			url:'deleteprocess1.php',
 			data:{delete_id : deleteid},
 			success:function(data){
 				var json = JSON.parse(data);
 				if(json.status == 0){
-					$('#tbl_rec').load('record.php');
+					$('#tbl_rec').load('record1.php');
 					$('#de_cancle').trigger("click");
 					console.log(json.msg);
 				}
@@ -491,6 +515,7 @@ $(document).ready(function (){
 
 
 });
+
 
 </script>
 

@@ -75,7 +75,20 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Display</title>
@@ -173,10 +186,6 @@
                     <td>
                         <input type="submit" value="Envoyer"> 
                     </td>
-                    <td>
-                        <input type="reset" value="Annuler" >
-                    </td>
-                </tr>
             </table>
         </form>
     </body>

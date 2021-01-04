@@ -146,6 +146,7 @@ class Userfunction{
 
 		$search = "SELECT * FROM $tblname WHERE $search";
 		$search_query = mysqli_query($this->con, $search);
+		if(!empty($search_query)) {
 		if(mysqli_num_rows($search_query) > 0){
 			$serch_fetch = mysqli_fetch_all($search_query, MYSQLI_ASSOC);
 			return $serch_fetch;
@@ -153,7 +154,7 @@ class Userfunction{
 		else{
 			return false;
 		}
-
+	}
 	}	
 
 }
